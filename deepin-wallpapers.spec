@@ -2,7 +2,7 @@
 
 Name:           deepin-wallpapers
 Version:        1.6.14
-Release:        1
+Release:        2 
 Summary:        Deepin Wallpapers provides wallpapers of dde
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-wallpapers
@@ -15,7 +15,6 @@ BuildRequires:  dde-api
 
 %prep
 %setup -q -n %{name}-%{version}
-sed -i 's|lib|libexec|' blur_image.sh
 
 %build
 %make_build
@@ -36,5 +35,8 @@ ln -sv ../wallpapers/deepin/desktop.jpg %{buildroot}%{_datadir}/backgrounds/defa
 %{_var}/cache/image-blur/
 
 %changelog
+* Fri Aug 27 2021 konglidong <konglidong@uniontech.com> - 1.6.14-2
+- fix build error
+
 * Thu Jul 30 2020 openEuler Buildteam <buildteam@openeuler.org> - 1.6.14-1
 - Package init
